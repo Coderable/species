@@ -1,0 +1,189 @@
+$backgroundColor: #444;
+$backgroundWhite: radial-gradient(rgb(255, 255, 255) 40%, rgb(224, 224, 224));
+$backgroundDark: radial-gradient(rgb(53, 53, 53) 40%, rgb(24, 24, 24));
+$cardShadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+$designationShadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+/* Global */
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  width: calc(100% - 2rem);
+
+  @media only screen and (max-width: 1024px) {
+    max-width: 800px;
+    margin: auto;
+  }
+  @media only screen and (max-width: 468px) {
+    max-width: 100%;
+    margin: auto;
+  }
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+
+  &.btn-cta {
+    padding: 0.5rem 1rem;
+    background: #ffe81f;
+    color: black;
+    margin-top: 2rem;
+  }
+}
+
+/* Main */
+.App {
+  text-align: center;
+  background-image: $backgroundWhite;
+  min-height: calc(100vh - 7.5rem);
+  padding: 3.75rem 0;
+  transition: all 0.3s;
+
+  &.White {
+    background-image: $backgroundWhite;
+  }
+
+  &.Dark {
+    background-image: $backgroundDark;
+    color: white;
+
+    .card {
+      color: #111;
+    }
+  }
+
+  .preview {
+    .btn {
+      padding: 1rem 3rem;
+      border-radius: 0.25rem;
+      border: none;
+      margin: 0 1rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+
+      &:hover {
+        box-shadow: none !important;
+        transform: translateY(-2px);
+        border: 1px solid;
+      }
+
+      &.btn-light {
+        background: white;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+      }
+
+      &.btn-dark {
+        background: black;
+        color: white;
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+
+  .App-header {
+    // background-color: $backgroundColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .main-logo {
+      height: auto;
+      width: 120px;
+      max-height: 120px;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .species-card {
+    padding: 1rem 1.5rem;
+    background: white;
+    box-shadow: $cardShadow;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    position: relative;
+
+    a {
+      color: unset;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      h6 {
+        margin-bottom: 0;
+        margin-top: 0;
+        font-weight: 400;
+      }
+
+      span {
+        padding: 1rem;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: $designationShadow;
+      }
+    }
+  }
+
+  .species-detail-card {
+    padding: 1.75rem 3rem;
+    background: white;
+    box-shadow: $cardShadow;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+
+    @media only screen and (max-width: 468px) {
+      padding: 1rem 2rem;
+    }
+
+    .card-info {
+      label {
+        font-weight: 600;
+        color: #8f8f8f;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
