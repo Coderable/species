@@ -7,10 +7,12 @@ import logo from "./logo.svg";
 // Components
 import Home from "./components/Home.component";
 import Detail from "./components/Detail.component";
+import Search from "./components/Search.component";
+import Species from "./components/Species.component";
+import People from "./components/People.component";
 
 // Global
 import "./App.scss";
-import Species from "./components/Species.component";
 
 export default class App extends Component {
   constructor() {
@@ -73,7 +75,9 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/species" component={Species} />
+              <Route exact path="/search" component={Search} />
               <Route path="/species/:slug" component={Detail} />
+              <Route path="/people/:slug" component={People} />
             </Switch>
           </div>
         </div>

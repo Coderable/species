@@ -23,7 +23,6 @@ export default class Species extends Component {
   loadSpecies() {
     this.setState({ isLoading: true });
     Axios.get("https://swapi.dev/api/species").then((res) => {
-      console.log("main res", res);
       this.setState({
         isLoading: false,
         species: res.data.results,
@@ -34,7 +33,6 @@ export default class Species extends Component {
 
   loadMoreData() {
     Axios.get(this.state.nextUrl).then((res) => {
-      console.log("res load more", res.data.results);
       this.setState({
         species: [...this.state.species, ...res.data.results],
         nextUrl: res.data.next,
@@ -46,6 +44,17 @@ export default class Species extends Component {
     const { isLoading, species } = this.state;
     return (
       <>
+        <a
+          href="/search"
+          className="btn-cta"
+          style={{
+            margin: `0 auto 3rem auto`,
+            display: `block`,
+            width: `fit-content`,
+          }}
+        >
+          Search species
+        </a>
         {isLoading ? (
           [1, 2, 3, 4, 5, 6, 7].map((skeleton, index) => {
             return (

@@ -4,7 +4,7 @@ import { Component } from "react";
 import Axios from "axios";
 import Skeleton from "react-loading-skeleton";
 
-export default class Home extends Component {
+export default class People extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,7 +16,7 @@ export default class Home extends Component {
   componentDidMount() {
     // alert(this.props.match.params.slug);
     Axios.get(
-      `https://swapi.dev/api/species/${this.props.match.params.slug}`
+      `https://swapi.dev/api/people/${this.props.match.params.slug}`
     ).then((res) => {
       this.setState({
         isLoading: false,
@@ -89,20 +89,20 @@ export default class Home extends Component {
           <div>
             <h2>{data.name}</h2>
             <div className="card-info">
-              <label>Classification</label>
-              <p>{data.classification}</p>
+              <label>Gender</label>
+              <p>{data.gender}</p>
             </div>
             <div className="card-info">
-              <label>Avg Height</label>
-              <p>{data.average_height}</p>
+              <label>Height</label>
+              <p>{data.height}</p>
             </div>
             <div className="card-info">
-              <label>Avg Lifespan</label>
-              <p>{data.average_lifespan}</p>
+              <label>Mass</label>
+              <p>{data.mass}</p>
             </div>
             <div className="card-info">
-              <label>Designation</label>
-              <p>{data.designation}</p>
+              <label>Skin Color</label>
+              <p>{data.skin_color}</p>
             </div>
           </div>
         )}
